@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+//same name as the pom
+option java_package = "com.spendingLimitService";
+//this line does not change
+option java_multiple_files = true;
+//this line will be used later (the name)
+option java_outer_classname = "spendingLimitServiceServiceImpl";
+
+service spendingLimitService{
+
+	//server streaming
+	rpc GetSpendingLimit(stream containsSpendingLimit) returns (containsSpendingLimit){}
+}
+
+message containsSpendingLimit{
+	string transaction = 1;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+//same name as the pom
+option java_package = "com.transactionService";
+//this line does not change
+option java_multiple_files = true;
+//this line will be used later (the name)
+option java_outer_classname = "transactionServiceImpl";
+
+service transactionService{
+
+	//server streaming
+	rpc GetTransaction(containsTransaction) returns (stream containsTransaction){}
+}
+
+message containsTransaction{
+	string transaction = 1;
+}
